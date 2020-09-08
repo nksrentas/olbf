@@ -1,7 +1,5 @@
 # OLBF technology stack
 
----
-
 | FrontEnd         | BackEnd |
 | :--------------- | :------ |
 | React            | MongoDB |
