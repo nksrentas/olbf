@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getProjects } from './actions/projectActions';
+import Navigation from './components/navigation/Navigation';
+import test from './test.svg';
 
 function App(props) {
   return (
@@ -10,70 +12,20 @@ function App(props) {
           <h1 className='display-4'>OLBF</h1>
         </div>
         <div className='col-1 ml-auto align-text-bottom'>
-          <h1>2</h1>
+          <h1>^</h1>
         </div>
       </div>
       <div className='row mt-3'>
         <div className='col-md-2'>
-          <div
-            class='nav flex-column nav-pills'
-            id='v-pills-tab'
-            role='tablist'
-            aria-orientation='vertical'
-          >
-            <a
-              class='nav-link active'
-              id='v-pills-home-tab'
-              data-toggle='pill'
-              href='#v-pills-home'
-              role='tab'
-              aria-controls='v-pills-home'
-              aria-selected='true'
-            >
-              Home
-            </a>
-            <a
-              class='nav-link'
-              id='v-pills-profile-tab'
-              data-toggle='pill'
-              href='#v-pills-profile'
-              role='tab'
-              aria-controls='v-pills-profile'
-              aria-selected='false'
-            >
-              Profile
-            </a>
-            <a
-              class='nav-link'
-              id='v-pills-messages-tab'
-              data-toggle='pill'
-              href='#v-pills-messages'
-              role='tab'
-              aria-controls='v-pills-messages'
-              aria-selected='false'
-            >
-              Messages
-            </a>
-            <a
-              class='nav-link'
-              id='v-pills-settings-tab'
-              data-toggle='pill'
-              href='#v-pills-settings'
-              role='tab'
-              aria-controls='v-pills-settings'
-              aria-selected='false'
-            >
-              Settings
-            </a>
-          </div>
+          <Navigation />
         </div>
         <div className='col-md-10'>
-          <nav class='navbar navbar-expand-lg navbar-light bg-light'>
-            <a class='navbar-brand' href='#'>
+          <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+            <a className='navbar-brand' href='/'>
               Navbar
             </a>
             <button
-              class='navbar-toggler'
+              className='navbar-toggler'
               type='button'
               data-toggle='collapse'
               data-target='#navbarNav'
@@ -81,117 +33,77 @@ function App(props) {
               aria-expanded='false'
               aria-label='Toggle navigation'
             >
-              <span class='navbar-toggler-icon'></span>
+              <span className='navbar-toggler-icon'></span>
             </button>
-            <div class='collapse navbar-collapse' id='navbarNav'>
-              <ul class='navbar-nav'>
-                <li class='nav-item active'>
-                  <a class='nav-link' href='#'>
-                    Home <span class='sr-only'>(current)</span>
-                  </a>
-                </li>
-                <li class='nav-item'>
-                  <a class='nav-link' href='#'>
-                    Features
-                  </a>
-                </li>
-                <li class='nav-item'>
-                  <a class='nav-link' href='#'>
-                    Pricing
-                  </a>
-                </li>
-                <li class='nav-item'>
-                  <a class='nav-link disabled' href='#'>
-                    Disabled
-                  </a>
-                </li>
-              </ul>
-            </div>
           </nav>
           <div className='jumbotron'>
             <div className='row'>
-              <div className='col-md-6'>
-                <div className='card'></div>
-                <div className='card-body'>
-                  <div className='card-title'>Card Title</div>
-                  <p class='card-text'>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href='#' class='btn btn-primary'>
-                    Go somewhere
-                  </a>
-                </div>
-              </div>
-              <div className='col-md-6'>
-                <div className='card'></div>
-                <div className='card-body'>
-                  <div className='card-title'>Card Title</div>
-                  <p class='card-text'>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href='#' class='btn btn-primary'>
-                    Go somewhere
-                  </a>
+              <div className='col-md-12'>
+                <div class='card flex-row flex-wrap'>
+                  <div class='card-header border-0'>
+                    <img src={test} alt='' />
+                  </div>
+                  <div class='card-block px-2'>
+                    <h4 class='card-title'>Title</h4>
+                    <p class='card-text'>Description</p>
+                    <a href='#' class='btn btn-primary'>
+                      BUTTON
+                    </a>
+                  </div>
+                  <div class='w-100'></div>
+                  <div class='card-footer w-100 text-muted'>
+                    Footer stating cats are CUTE little animals
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className='row justify-content-md-center'>
               <div className='col-md-6'>
-                <div className='card'></div>
-                <div className='card-body'>
-                  <div className='card-title'>Card Title</div>
-                  <p class='card-text'>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href='#' class='btn btn-primary'>
-                    Go somewhere
-                  </a>
+                <div className='card'>
+                  <div className='card-body'>
+                    <div className='card-title'>Card Title</div>
+                    <p className='card-text'>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className='col-md-6'>
-                <div className='card'></div>
-                <div className='card-body'>
-                  <div className='card-title'>Card Title</div>
-                  <p class='card-text'>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href='#' class='btn btn-primary'>
-                    Go somewhere
-                  </a>
+                <div className='card'>
+                  <div className='card-body'>
+                    <div className='card-title'>Card Title</div>
+                    <p className='card-text'>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className='row justify-content-md-center'>
               <div className='col-md-6'>
-                <div className='card'></div>
-                <div className='card-body'>
-                  <div className='card-title'>Card Title</div>
-                  <p class='card-text'>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href='#' class='btn btn-primary'>
-                    Go somewhere
-                  </a>
+                <div className='card'>
+                  <div className='card-body'>
+                    <div className='card-title'>Card Title</div>
+                    <p className='card-text'>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className='col-md-6'>
-                <div className='card'></div>
-                <div className='card-body'>
-                  <div className='card-title'>Card Title</div>
-                  <p class='card-text'>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <a href='#' class='btn btn-primary'>
-                    Go somewhere
-                  </a>
+                <div className='card'>
+                  <div className='card-body'>
+                    <div className='card-title'>Card Title</div>
+                    <p className='card-text'>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
