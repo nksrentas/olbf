@@ -1,3 +1,5 @@
+import { SET_ACTIVE_LINK } from '../actions/navigationActions';
+
 const intialState = {
   path: '/',
   title: 'Home',
@@ -5,15 +7,12 @@ const intialState = {
 
 const navigationReducer = (state = intialState, action) => {
   switch (action.type) {
-    case 'SET_URL_PATH':
-      console.log('NAVIGATION REDUCER: ', action);
+    case SET_ACTIVE_LINK:
       return {
-        path: action.payload,
+        ...action.payload,
       };
     default:
-      return {
-        path: intialState,
-      };
+      return state;
   }
 };
 

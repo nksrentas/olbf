@@ -7,12 +7,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const TopBar = (props) => {
-  console.log(props);
+  // eslint-disable-next-line no-unused-vars
+  const { path, title } = props.data;
   return (
     <div className='col-md-10 ml-auto '>
       <nav className='navbar navbar-expand-lg navbar-light bg-light justify-content-between rounded-top'>
         <a className='navbar-brand' href='/'>
-          {props.title}
+          {title}
         </a>
         <div>
           <FontAwesomeIcon icon={faSearch} size='2x' />

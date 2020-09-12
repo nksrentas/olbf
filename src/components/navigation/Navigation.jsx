@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import navigationRoutes from '../../configs/navigationRoutes';
 import { connect } from 'react-redux';
-
 import { Switch, Route, NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router';
+
+import { setActiveLink } from '../../actions/navigationActions';
+
+const pathToTitle = (path, array) => {
+  let routeObj = array.filter((route) => {
+    return route.path === path;
+  });
+
+  return routeObj.shift().title || '';
+};
 
 function Navigation(props) {
+  console.log(props);
+  console.log(pathToTitle('/frontend-mentor', navigationRoutes));
+
+  useEffect(() => {
+    const refreshedPathName = props.location.pathname;
+    const test = props.navigationFire;
+    test({
+      path: refreshedPathName,
+      title: pathToTitle(refreshedPathName, navigationRoutes),
+    });
+  }, []);
+
   const handleClick = (event) => {
     props.navigationFire({
       path: event.target.href,
@@ -44,8 +66,8 @@ function Navigation(props) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    navigationFire: (url) => dispatch({ type: 'SET_URL_PATH', payload: url }),
+    navigationFire: (url) => dispatch(setActiveLink(url)),
   };
 };
 
-export default connect(null, mapDispatchToProps)(Navigation);
+export default withRouter(connect(null, mapDispatchToProps)(Navigation));

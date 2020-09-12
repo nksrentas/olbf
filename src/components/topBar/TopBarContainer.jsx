@@ -3,15 +3,12 @@ import { connect } from 'react-redux';
 import TopBar from './TopBar';
 
 const TopBarContainer = (props) => {
-  console.log('eimai edw ', props);
-  return <TopBar title={props.activeTitleLink.title} />;
-  // return <TopBar title={props.activeTitleLink} />;
+  return <TopBar data={props.activeTitleLink} />;
 };
 
 const mapStateToProps = (state) => {
   return {
-    activeTitleLink: state.navigation.path,
-    // activeTitleLink: state.topBar.activeTitleLink,
+    activeTitleLink: state.navigation,
   };
 };
 
