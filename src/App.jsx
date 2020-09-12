@@ -2,13 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getProjects } from './actions/projectActions';
 import Navigation from './components/navigation/Navigation';
+import TopBarContainer from './components/topBar/TopBarContainer';
 import test from './test.svg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSearch,
-  faThLarge,
-  faThList,
-} from '@fortawesome/free-solid-svg-icons';
 
 function App(props) {
   return (
@@ -21,21 +16,14 @@ function App(props) {
           <h1>^</h1>
         </div>
       </div>
-      <div className='row mt-3'>
+      <div className='row'>
+        <TopBarContainer />
+      </div>
+      <div className='row '>
         <div className='col-md-2'>
           <Navigation />
         </div>
         <div className='col-md-10'>
-          <nav className='navbar navbar-expand-lg navbar-light bg-light justify-content-between rounded-top'>
-            <a className='navbar-brand' href='/'>
-              Navbar
-            </a>
-            <div>
-              <FontAwesomeIcon icon={faSearch} size='2x' />
-              <FontAwesomeIcon icon={faThLarge} size='2x' />
-              <FontAwesomeIcon icon={faThList} size='2x' />
-            </div>
-          </nav>
           <div className='jumbotron rounded-0 rounded-bottom'>
             <div className='row'>
               <div className='col-md-12'>

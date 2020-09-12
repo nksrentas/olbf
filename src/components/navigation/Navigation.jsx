@@ -1,14 +1,17 @@
 import React from 'react';
 import navigationRoutes from '../../configs/navigationRoutes';
+import { connect } from 'react-redux';
 
 import { Switch, Route, NavLink } from 'react-router-dom';
 
-const handleClick = (event) => {
-  console.log(event.target.href);
-  console.log(event.target.innerHTML);
-};
+function Navigation(props) {
+  const handleClick = (event) => {
+    props.navigationFire({
+      path: event.target.href,
+      title: event.target.innerHTML,
+    });
+  };
 
-export default function Navigation(props) {
   return (
     <div>
       <div
@@ -38,3 +41,11 @@ export default function Navigation(props) {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    navigationFire: (url) => dispatch({ type: 'SET_URL_PATH', payload: url }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Navigation);
