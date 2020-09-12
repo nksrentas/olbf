@@ -2,8 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TopBar from './TopBar';
 
+import { setView } from '../../actions/topBarActions';
+
 const TopBarContainer = (props) => {
-  return <TopBar data={props.activeTitleLink} />;
+  const handleViewState = (view) => {
+    props.changeView(view);
+  };
+  return <TopBar data={props.activeTitleLink} handleView={handleViewState} />;
 };
 
 const mapStateToProps = (state) => {
@@ -14,9 +19,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeView: (viewType) => {
-      dispatch({ type: 'SET_VIEW', payload: viewType });
-    },
+    changeView: (view) => dispatch(setView(view)),
   };
 };
 

@@ -15,12 +15,9 @@ const pathToTitle = (path, array) => {
 };
 
 function Navigation(props) {
-  console.log(props);
-  console.log(pathToTitle('/frontend-mentor', navigationRoutes));
-
+  const refreshedPathName = props.location.pathname;
+  const test = props.navigationFire;
   useEffect(() => {
-    const refreshedPathName = props.location.pathname;
-    const test = props.navigationFire;
     test({
       path: refreshedPathName,
       title: pathToTitle(refreshedPathName, navigationRoutes),

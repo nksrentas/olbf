@@ -1,3 +1,5 @@
+import { SET_VIEW } from '../actions/topBarActions';
+
 const intialState = {
   activeTitleLink: 'Home',
   viewType: 'list',
@@ -5,14 +7,10 @@ const intialState = {
 
 const topBarReducer = (state = intialState, action) => {
   switch (action.type) {
-    case 'SET_VIEW':
+    case SET_VIEW:
       return {
         ...state,
-        viewType: action.payload.viewType,
-      };
-    case 'GET_ACTIVE_LINK_TITLE':
-      return {
-        activeTitleLink: state.activeTitleLink,
+        viewType: action.payload,
       };
     default:
       return state;
