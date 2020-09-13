@@ -16,7 +16,6 @@ const TopBar = (props) => {
   const iconBasicStyle = 'd-inline-block ml-2';
   const iconActiveStyle = 'rounded-circle bg-primary';
 
-  console.log(props);
   return (
     <div className='col-md-10 ml-auto '>
       <nav className='navbar navbar-expand-lg navbar-light bg-light justify-content-between rounded-top'>

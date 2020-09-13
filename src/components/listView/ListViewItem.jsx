@@ -4,7 +4,7 @@ const ListViewItem = (props) => {
   return (
     <div className='row'>
       <div className='col-12 mt-3'>
-        <div className='card'>
+        <div className='card p-4'>
           <div className='d-flex flex-wrap flex-md-nowrap'>
             <div className='img-square-wrapper'>
               <img src='http://via.placeholder.com/300x180' alt='Card  cap' />
@@ -17,9 +17,6 @@ const ListViewItem = (props) => {
                 the bulk of the card's content.
               </p>
             </div>
-          </div>
-          <div className='card-footer'>
-            <small className='text-muted'>Last updated 3 mins ago</small>
           </div>
         </div>
       </div>

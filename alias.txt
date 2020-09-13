@@ -1,0 +1,2 @@
+
+1. `ns` = npm run start

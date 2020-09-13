@@ -5,6 +5,7 @@ import { Switch, Route, NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 import { setActiveLink } from '../../actions/navigationActions';
+import Socials from '../Socials';
 
 const pathToTitle = (path, array) => {
   let routeObj = array.filter((route) => {
@@ -56,6 +57,8 @@ function Navigation(props) {
             <Route exact key={index} path={route.path} />
           ))}
         </Switch>
+
+        <Socials orientation='row' />
       </div>
     </div>
   );
