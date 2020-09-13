@@ -1,8 +1,32 @@
 const initialState = [
-  { id: 1, text: 'blah blah blah' },
-  { id: 2, text: 'blah blah blah' },
-  { id: 3, text: 'blah blah blah' },
-  { id: 4, text: 'blah blah blah' },
+  {
+    id: 1,
+    title: 'Project one',
+    estimateTime: '10min',
+    category: 'frontend master',
+    text: 'blah blah blah',
+  },
+  {
+    id: 2,
+    title: 'Project two',
+    estimateTime: '7min',
+    category: 'hardware',
+    text: 'blah blah blah',
+  },
+  {
+    id: 3,
+    title: 'Project three',
+    estimateTime: '20min',
+    category: 'hardware',
+    text: 'blah blah blah',
+  },
+  {
+    id: 4,
+    title: 'Project four',
+    estimateTime: '12min',
+    category: 'frontend master',
+    text: 'blah blah blah',
+  },
 ];
 
 const projectsReducer = (state = initialState, action) => {

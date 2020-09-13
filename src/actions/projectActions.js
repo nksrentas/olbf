@@ -4,9 +4,10 @@ export const GET_PROJECT = 'GET_PROJECT';
 export const GET_PROJECT_ERROR = 'GET_PROJECT_ERROR';
 
 export const getProjects = () => {
-  return {
-    type: GET_PROJECTS,
-    payload: '',
+  return (dispatch, getState) => {
+    setTimeout(() => {
+      dispatch({ type: GET_PROJECTS, payload: 'fetched DATA!!!' });
+    }, 1000);
   };
 };
 

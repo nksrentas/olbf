@@ -28,13 +28,11 @@ function App(props) {
         </div>
         <div className='col-md-10'>
           <div className='jumbotron rounded-0 rounded-bottom'>
-            <div className='row'>
-              {viewType === 'list' ? (
-                <ListViewContainer />
-              ) : (
-                <GridViewContainer />
-              )}
-            </div>
+            {viewType === 'list' ? (
+              <ListViewContainer />
+            ) : (
+              <GridViewContainer />
+            )}
           </div>
         </div>
       </div>

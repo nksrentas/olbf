@@ -33,7 +33,7 @@ function Navigation(props) {
   };
 
   return (
-    <div>
+    <>
       <div
         className='nav flex-column nav-pills'
         id='v-pills-tab'
@@ -57,10 +57,9 @@ function Navigation(props) {
             <Route exact key={index} path={route.path} />
           ))}
         </Switch>
-
-        <Socials orientation='row' />
       </div>
-    </div>
+      <Socials orientation='row' />
+    </>
   );
 }
 

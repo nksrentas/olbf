@@ -1,8 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ListView from './ListView';
 
-const ListViewContainer = () => {
-  return <ListView />;
+const ListViewContainer = (props) => {
+  const { projects } = props;
+  return <ListView projects={projects} />;
 };
 
-export default ListViewContainer;
+const mapStateToProps = (state) => {
+  return {
+    projects: state.projects,
+  };
+};
+
+export default connect(mapStateToProps)(ListViewContainer);
