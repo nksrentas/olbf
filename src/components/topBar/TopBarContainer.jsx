@@ -8,12 +8,19 @@ const TopBarContainer = (props) => {
   const handleViewState = (view) => {
     props.changeView(view);
   };
-  return <TopBar data={props.activeTitleLink} handleView={handleViewState} />;
+  return (
+    <TopBar
+      data={props.activeTitleLink}
+      handleView={handleViewState}
+      activeViewType={props.activeViewType}
+    />
+  );
 };
 
 const mapStateToProps = (state) => {
   return {
     activeTitleLink: state.navigation,
+    activeViewType: state.topBar.viewType,
   };
 };
 

@@ -8,9 +8,15 @@ import {
 
 const TopBar = (props) => {
   // eslint-disable-next-line no-unused-vars
-  const { path, title } = props.data;
+  const {
+    data: { path, title },
+    activeViewType,
+  } = props;
   const handleView = props.handleView;
+  const iconBasicStyle = 'd-inline-block ml-2';
+  const iconActiveStyle = 'rounded-circle bg-primary';
 
+  console.log(props);
   return (
     <div className='col-md-10 ml-auto '>
       <nav className='navbar navbar-expand-lg navbar-light bg-light justify-content-between rounded-top'>
@@ -19,16 +25,32 @@ const TopBar = (props) => {
         </a>
         <div>
           <FontAwesomeIcon icon={faSearch} size='2x' />
-          <FontAwesomeIcon
-            icon={faThLarge}
-            size='2x'
-            onClick={handleView.bind(this, 'grid')}
-          />
-          <FontAwesomeIcon
-            icon={faThList}
-            size='2x'
-            onClick={handleView.bind(this, 'list')}
-          />
+          <div
+            className={
+              activeViewType === 'grid'
+                ? iconBasicStyle + ' ' + iconActiveStyle
+                : iconBasicStyle
+            }
+          >
+            <FontAwesomeIcon
+              icon={faThLarge}
+              size='2x'
+              onClick={handleView.bind(this, 'grid')}
+            />
+          </div>
+          <div
+            className={
+              activeViewType === 'list'
+                ? iconBasicStyle + ' ' + iconActiveStyle
+                : iconBasicStyle
+            }
+          >
+            <FontAwesomeIcon
+              icon={faThList}
+              size='2x'
+              onClick={handleView.bind(this, 'list')}
+            />
+          </div>
         </div>
       </nav>
     </div>
