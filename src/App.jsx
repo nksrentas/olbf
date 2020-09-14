@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getProjects } from './actions/projectActions';
 import Navigation from './components/navigation/Navigation';
 import TopBarContainer from './components/topBar/TopBarContainer';
 
@@ -19,14 +18,16 @@ function App(props) {
           <h1>^</h1>
         </div>
       </div>
-      <div className='row'>
-        <TopBarContainer />
-      </div>
+
       <div className='row '>
         <div className='col-md-2'>
           <Navigation />
         </div>
+
         <div className='col-md-10'>
+          <div className='row'>
+            <TopBarContainer />
+          </div>
           <div className='jumbotron rounded-0 rounded-bottom'>
             {viewType === 'list' ? (
               <ListViewContainer />
