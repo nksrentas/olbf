@@ -8,7 +8,11 @@ const ListViewItem = (props) => {
         <div className='card p-4'>
           <div className='d-flex flex-wrap flex-md-nowrap'>
             <div className='img-square-wrapper'>
-              <img src='http://via.placeholder.com/300x180' alt='Card  cap' />
+              <img
+                className='img-fluid'
+                src='http://via.placeholder.com/300x180'
+                alt='Card  cap'
+              />
             </div>
             <div className='card-body'>
               <h5 className='card-title text-info'>{project.title}</h5>

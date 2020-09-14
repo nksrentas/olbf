@@ -46,10 +46,4 @@ const mapStateToProps = (state, ownState) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    kappaDispatch: dispatch(getProjects()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

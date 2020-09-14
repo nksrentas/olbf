@@ -5,6 +5,7 @@ import { Switch, Route, NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 import { setActiveLink } from '../../actions/navigationActions';
+import { getProjects } from '../../actions/projectActions';
 import Socials from '../Socials';
 
 const pathToTitle = (path, array) => {
@@ -30,6 +31,7 @@ function Navigation(props) {
       path: event.target.href,
       title: event.target.innerHTML,
     });
+    props.projectsFire(event.target.href);
   };
 
   return (
@@ -66,6 +68,7 @@ function Navigation(props) {
 const mapDispatchToProps = (dispatch) => {
   return {
     navigationFire: (url) => dispatch(setActiveLink(url)),
+    projectsFire: (path) => dispatch(getProjects(path)),
   };
 };
 
