@@ -3,7 +3,7 @@ import React from 'react';
 const ListViewItem = (props) => {
   const { project } = props;
   return (
-    <div className='row'>
+    <div className='row '>
       <div className='col-12 mt-3'>
         <div className='card p-4'>
           <div className='d-flex flex-wrap flex-md-nowrap'>

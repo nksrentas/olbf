@@ -12,7 +12,7 @@ function App(props) {
     <div className='container'>
       <div className='row pt-4'>
         <div className='col-2'>
-          <h1 className='display-4'>OLBF</h1>
+          <h1 className='display-4 position-sticky'>OLBF</h1>
         </div>
         <div className='col-1 ml-auto align-text-bottom'>
           <h1>^</h1>
@@ -25,7 +25,7 @@ function App(props) {
         </div>
 
         <div className='col-md-10'>
-          <div className='row'>
+          <div className='row sticky-top'>
             <TopBarContainer />
           </div>
           <div className='jumbotron rounded-0 rounded-bottom'>
