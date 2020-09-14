@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import GridView from './GridView';
 
 const GridViewContainer = (props) => {
-  const { projects } = props;
-  return <GridView projects={projects} />;
+  const { projects, navigation } = props;
+
+  return <GridView projects={projects} path={navigation} />;
 };
 
 const mapStateToProps = (state) => {
   return {
     projects: state.projects,
+    navigation: state.navigation.path,
   };
 };
 

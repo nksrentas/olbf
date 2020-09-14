@@ -1,7 +1,7 @@
 const navigationRoutes = [
   {
-    path: '/',
-    title: 'Home',
+    path: '/javascript',
+    title: 'Javascript',
     exact: 'true',
   },
   {

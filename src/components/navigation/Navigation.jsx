@@ -13,12 +13,14 @@ const pathToTitle = (path, array) => {
     return route.path === path;
   });
 
-  return routeObj.shift().title || '';
+  // check if route is wrong
+  return routeObj.length ? routeObj.shift().title : '404';
 };
 
 function Navigation(props) {
   const refreshedPathName = props.location.pathname;
   const test = props.navigationFire;
+
   useEffect(() => {
     test({
       path: refreshedPathName,
@@ -27,12 +29,23 @@ function Navigation(props) {
   }, []);
 
   const handleClick = (event) => {
+    // TODO: fix href
     props.navigationFire({
       path: event.target.href,
       title: event.target.innerHTML,
     });
     props.projectsFire(event.target.href);
   };
+
+  function NoMatch() {
+    return (
+      <div>
+        <h3>
+          No match for <p>kappa</p>
+        </h3>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -53,11 +66,13 @@ function Navigation(props) {
             {route.title}
           </NavLink>
         ))}
-
         <Switch>
           {navigationRoutes.map((route, index) => (
             <Route exact key={index} path={route.path} />
           ))}
+          <Route path='*'>
+            <NoMatch />
+          </Route>
         </Switch>
       </div>
       <Socials orientation='row' />
