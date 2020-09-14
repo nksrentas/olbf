@@ -3,7 +3,6 @@ import React from 'react';
 const GridViewItem = (props) => {
   const { project } = props;
   return (
-    // <div className='row justify-content-md-center'>
     <div className='col-md-6'>
       <div className='card'>
         <div className='card-body'>
@@ -12,7 +11,6 @@ const GridViewItem = (props) => {
         </div>
       </div>
     </div>
-    // </div>
   );
 };
 

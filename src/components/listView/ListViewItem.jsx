@@ -14,7 +14,7 @@ const ListViewItem = (props) => {
                 alt='Card  cap'
               />
             </div>
-            <div className='card-body'>
+            <div className='card-body '>
               <h5 className='card-title text-info'>{project.title}</h5>
               <h6 className='card-subtitle mb-2 text-muted'>
                 {project.estimateTime}, {project.category}
