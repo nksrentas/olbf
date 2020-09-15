@@ -1,6 +1,6 @@
 # OLBF technology stack
 
-<details open>
+<details >
 <summary>BOOOOM</summary>
 <img src="readmeImages/youtube-channel-art.png">
 </details>
