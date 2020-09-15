@@ -24,6 +24,7 @@ function App(props) {
           <Navigation />
         </div>
 
+        {/* TODO: refactor to individual component */}
         <div className='col-md-10'>
           <div className='row sticky-top'>
             <TopBarContainer />
