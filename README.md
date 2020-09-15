@@ -2,7 +2,7 @@
 
 <details open>
 <summary>BOOOOM</summary>
-![Youtube channel art](readmeImages/youtube-channel-art.png)
+<img src="readmeImages/youtube-channel-art.png">
 </details>
 
 | FrontEnd         | BackEnd |
