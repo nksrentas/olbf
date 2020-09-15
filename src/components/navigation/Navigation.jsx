@@ -13,7 +13,7 @@ const pathToTitle = (path, array) => {
     return route.path === path;
   });
 
-  // check if route is wrong
+  // check if route is 404
   return routeObj.length ? routeObj.shift().title : '404';
 };
 
@@ -29,9 +29,8 @@ function Navigation(props) {
   }, []);
 
   const handleClick = (event) => {
-    // TODO: fix href
     props.navigationFire({
-      path: event.target.href,
+      path: event.target.getAttribute('href'),
       title: event.target.innerHTML,
     });
     props.projectsFire(event.target.href);

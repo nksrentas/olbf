@@ -8,7 +8,7 @@ const GridViewItem = (props) => {
       <div className='card'>
         <div className='card-body'>
           <Link
-            to={`${path}/${project.title}`}
+            to={`${path}/${project.subPath}`}
             className='card-title stretched-link text-decoration-none'
           >
             {project.title}

@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ListViewItem = (props) => {
-  const { project } = props;
+  const { project, path } = props;
   return (
     <div className='row '>
       <div className='col-12 mt-3'>
@@ -15,7 +16,12 @@ const ListViewItem = (props) => {
               />
             </div>
             <div className='card-body '>
-              <h5 className='card-title text-info'>{project.title}</h5>
+              <Link
+                to={`${path}/${project.subPath}`}
+                className='stretched-link text-decoration-none'
+              >
+                <h5 className='card-title text-info'>{project.title}</h5>
+              </Link>
               <h6 className='card-subtitle mb-2 text-muted'>
                 {project.estimateTime}, {project.category}
               </h6>

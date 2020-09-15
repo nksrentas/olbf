@@ -1,6 +1,7 @@
 const initialState = [
   {
     id: 1,
+    subPath: 'project-one',
     title: 'Project one',
     estimateTime: '10min',
     category: 'frontend master',
@@ -8,6 +9,7 @@ const initialState = [
   },
   {
     id: 2,
+    subPath: 'project-two',
     title: 'Project two',
     estimateTime: '7min',
     category: 'hardware',
@@ -15,6 +17,7 @@ const initialState = [
   },
   {
     id: 3,
+    subPath: 'project-three',
     title: 'Project three',
     estimateTime: '20min',
     category: 'hardware',
@@ -22,6 +25,7 @@ const initialState = [
   },
   {
     id: 4,
+    subPath: 'project-four',
     title: 'Project four',
     estimateTime: '12min',
     category: 'frontend master',
