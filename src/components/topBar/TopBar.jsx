@@ -24,6 +24,11 @@ const TopBar = (props) => {
         </a>
         <div>
           <FontAwesomeIcon icon={faSearch} size='2x' />
+          <span
+            className='border-right mr-3 pr-3 align-text-bottom d-none d-md-inline-block'
+            style={{ height: '1.5em' }}
+          ></span>
+
           <div
             className={
               activeViewType === 'grid'
