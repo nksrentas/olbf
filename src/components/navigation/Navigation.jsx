@@ -3,10 +3,10 @@ import navigationRoutes from '../../configs/navigationRoutes';
 import { connect } from 'react-redux';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import Socials from '../Socials';
 
 import { setActiveLink } from '../../actions/navigationActions';
 import { getProjects } from '../../actions/projectActions';
-import Socials from '../Socials';
 
 const pathToTitle = (path, array) => {
   let routeObj = array.filter((route) => {
@@ -22,6 +22,7 @@ function Navigation(props) {
   const { navigationFire } = props;
   const { projectsFire } = props;
 
+  // gia to refresh
   useEffect(() => {
     navigationFire({
       path: refreshedPathName,
