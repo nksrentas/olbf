@@ -1,13 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Navigation from './components/navigation/Navigation';
 import TopBarContainer from './components/topBar/TopBarContainer';
 
-import GridViewContainer from './components/gridView/GridViewContainer';
-import ListViewContainer from './components/listView/ListViewContainer';
+import ViewContainer from './components/ViewContainer';
 
 function App(props) {
-  const { viewType } = props;
   return (
     <div className='container'>
       <div className='row pt-4'>
@@ -29,23 +26,11 @@ function App(props) {
           <div className='row sticky-top'>
             <TopBarContainer />
           </div>
-          <div className='jumbotron rounded-0 rounded-bottom'>
-            {viewType === 'list' ? (
-              <ListViewContainer />
-            ) : (
-              <GridViewContainer />
-            )}
-          </div>
+          <ViewContainer />
         </div>
       </div>
     </div>
   );
 }
 
-const mapStateToProps = (state, ownState) => {
-  return {
-    viewType: state.topBar.viewType,
-  };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;

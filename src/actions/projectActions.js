@@ -23,7 +23,7 @@ export const getProjects = (type) => {
           ],
         },
       });
-    }, 1000);
+    }, 3000);
   };
 };
 
