@@ -19,13 +19,15 @@ const pathToTitle = (path, array) => {
 
 function Navigation(props) {
   const refreshedPathName = props.location.pathname;
-  const test = props.navigationFire;
+  const { navigationFire } = props;
+  const { projectsFire } = props;
 
   useEffect(() => {
-    test({
+    navigationFire({
       path: refreshedPathName,
       title: pathToTitle(refreshedPathName, navigationRoutes),
     });
+    projectsFire(refreshedPathName);
   }, []);
 
   const handleClick = (event) => {
@@ -33,7 +35,7 @@ function Navigation(props) {
       path: event.target.getAttribute('href'),
       title: event.target.innerHTML,
     });
-    props.projectsFire(event.target.href);
+    props.projectsFire(event.target.getAttribute('href'));
   };
 
   function NoMatch() {

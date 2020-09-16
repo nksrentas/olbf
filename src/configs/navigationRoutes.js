@@ -1,8 +1,12 @@
 const navigationRoutes = [
   {
+    path: '/',
+    title: 'Latest Projects',
+    exact: 'true',
+  },
+  {
     path: '/javascript',
     title: 'Javascript',
-    exact: 'true',
   },
   {
     path: '/frontend-mentor',

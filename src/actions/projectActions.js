@@ -5,8 +5,24 @@ export const GET_PROJECT_ERROR = 'GET_PROJECT_ERROR';
 
 export const getProjects = (type) => {
   return (dispatch, getState) => {
+    // fake database call at `type` prop
     setTimeout(() => {
-      dispatch({ type: GET_PROJECTS, payload: 'fetched DATA!!!' });
+      dispatch({
+        type: GET_PROJECTS,
+        payload: {
+          type,
+          data: [
+            {
+              id: 1,
+              subPath: 'FETCHED project-one',
+              title: 'FETCHED Project one',
+              estimateTime: '10min',
+              category: 'kappa keepo',
+              text: 'blah blah blah',
+            },
+          ],
+        },
+      });
     }, 1000);
   };
 };
