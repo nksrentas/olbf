@@ -1,6 +1,6 @@
 const navigationRoutes = [
   {
-    path: '/',
+    path: '/latest-projects',
     title: 'Latest Projects',
     exact: 'true',
   },

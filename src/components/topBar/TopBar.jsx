@@ -2,8 +2,8 @@ import React from 'react';
 import TopBarIcons from './TopBarIcons';
 
 const TopBar = (props) => {
-  console.log(props);
   const {
+    // eslint-disable-next-line no-unused-vars
     data: { path, title, cleanTitle, error },
   } = props;
 

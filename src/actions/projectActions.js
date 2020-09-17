@@ -26,7 +26,7 @@ export const getProjects = (type) => {
           data: [
             {
               id: 1,
-              subPath: 'FETCHED project-one',
+              subPath: 'FETCHED-project-one',
               title: type + ' FETCHED Project one',
               estimateTime: '10min',
               category: 'kappa keepo',
