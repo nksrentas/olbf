@@ -1,10 +1,10 @@
 import React from 'react';
 import Navigation from './components/navigation/Navigation';
-import TopBarContainer from './components/topBar/TopBarContainer';
-
-import ViewContainer from './components/ViewContainer';
-
-function App(props) {
+import MainContentContainer from './components/MainContentContainer';
+import navigationRoutes, { wrongRoute } from './configs/navigationRoutes';
+import { Switch, Route } from 'react-router-dom';
+import { Redirect } from 'react-router';
+function App() {
   return (
     <div className='container'>
       <div className='row pt-4'>
@@ -20,14 +20,24 @@ function App(props) {
         <div className='col-md-2'>
           <Navigation />
         </div>
+        <Switch>
+          {navigationRoutes.map((route, index) => (
+            <Route exact key={index} path={route.path}>
+              <MainContentContainer />
+            </Route>
+          ))}
 
-        {/* TODO: refactor to individual component */}
-        <div className='col-md-10'>
-          <div className='row sticky-top'>
-            <TopBarContainer />
-          </div>
-          <ViewContainer />
-        </div>
+          {/* 404 route */}
+          <Route exact key='404' path={wrongRoute.path}>
+            <MainContentContainer error={true} />
+          </Route>
+          <Route
+            path='*'
+            render={() => {
+              return <Redirect to='you-are-lost' />;
+            }}
+          />
+        </Switch>
       </div>
     </div>
   );

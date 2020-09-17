@@ -18,4 +18,9 @@ const navigationRoutes = [
   },
 ];
 
+export const wrongRoute = {
+  path: '/you-are-lost',
+  title: '404',
+};
+
 export default navigationRoutes;

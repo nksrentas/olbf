@@ -1,21 +1,13 @@
 import React, { useEffect } from 'react';
 import navigationRoutes from '../../configs/navigationRoutes';
 import { connect } from 'react-redux';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Socials from '../Socials';
 
 import { setActiveLink } from '../../actions/navigationActions';
 import { getProjects } from '../../actions/projectActions';
-
-const pathToTitle = (path, array) => {
-  let routeObj = array.filter((route) => {
-    return route.path === path;
-  });
-
-  // check if route is 404
-  return routeObj.length ? routeObj.shift().title : '404';
-};
+import { pathToTitle } from '../../utils/reformPath';
 
 function Navigation(props) {
   const refreshedPathName = props.location.pathname;
@@ -24,11 +16,14 @@ function Navigation(props) {
 
   // gia to refresh
   useEffect(() => {
-    navigationFire({
-      path: refreshedPathName,
-      title: pathToTitle(refreshedPathName, navigationRoutes),
-    });
-    projectsFire(refreshedPathName);
+    let title = pathToTitle(refreshedPathName, navigationRoutes);
+    if (title) {
+      navigationFire({
+        path: refreshedPathName,
+        title,
+      });
+      projectsFire(refreshedPathName);
+    }
   }, []);
 
   const handleClick = (event) => {
@@ -36,18 +31,8 @@ function Navigation(props) {
       path: event.target.getAttribute('href'),
       title: event.target.innerHTML,
     });
-    props.projectsFire(event.target.getAttribute('href'));
+    projectsFire(event.target.getAttribute('href'));
   };
-
-  function NoMatch() {
-    return (
-      <div>
-        <h3>
-          No match for <p>kappa</p>
-        </h3>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -68,14 +53,6 @@ function Navigation(props) {
             {route.title}
           </NavLink>
         ))}
-        <Switch>
-          {navigationRoutes.map((route, index) => (
-            <Route exact key={index} path={route.path} />
-          ))}
-          <Route path='*'>
-            <NoMatch />
-          </Route>
-        </Switch>
       </div>
       <Socials orientation='row' />
     </>

@@ -8,14 +8,12 @@ export const GET_PROJECT_ERROR = 'GET_PROJECT_ERROR';
 export const getProjects = (type) => {
   return (dispatch, getState) => {
     // fake database call at `type` prop
-    console.log('Start fetch data...');
     dispatch({
       type: GET_PROJECTS_REQUEST,
       payload: { fetchState: { isLoading: true, success: null, error: null } },
     });
 
     setTimeout(() => {
-      console.log('fetching data is over');
       dispatch({
         type: GET_PROJECTS_SUCCESS,
         payload: {

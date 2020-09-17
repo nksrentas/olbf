@@ -5,22 +5,23 @@ import TopBar from './TopBar';
 import { setView } from '../../actions/topBarActions';
 
 const TopBarContainer = (props) => {
+  const { navigation, topBar } = props;
   const handleViewState = (view) => {
     props.changeView(view);
   };
   return (
     <TopBar
-      data={props.activeTitleLink}
+      data={navigation}
       handleView={handleViewState}
-      activeViewType={props.activeViewType}
+      activeViewType={topBar}
     />
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    activeTitleLink: state.navigation,
-    activeViewType: state.topBar.viewType,
+    navigation: state.navigation,
+    topBar: state.topBar.viewType,
   };
 };
 

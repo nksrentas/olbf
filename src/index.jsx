@@ -5,7 +5,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-// import logger from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -20,7 +19,6 @@ const store = createStore(
         serialize: true,
         trace: true,
       })
-    // applyMiddleware(logger)
   )
 );
 
