@@ -5,15 +5,22 @@ import GridView from './gridView/GridView';
 
 const ViewContainer = (props) => {
   const { viewType, projects, path, projectSection } = props;
-  return (
-    <div className='jumbotron rounded-0 rounded-bottom'>
-      {viewType === 'list' ? (
-        <ListView projects={projects[projectSection]} path={path} />
-      ) : (
-        <GridView projects={projects[projectSection]} path={path} />
-      )}
-    </div>
-  );
+  // TODO: fix error properView
+  let properView = <p>ERRORR</p>;
+
+  if (projects.isLoading) {
+    properView = <p>Loading...</p>;
+  }
+
+  if (projects.success && viewType === 'list') {
+    properView = <ListView projects={projects[projectSection]} path={path} />;
+  }
+
+  if (projects.success && viewType === 'grid') {
+    properView = <GridView projects={projects[projectSection]} path={path} />;
+  }
+
+  return <div className='jumbotron rounded-0 rounded-bottom'>{properView}</div>;
 };
 
 const mapStateToProps = (state) => {
