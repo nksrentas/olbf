@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getProject } from '../../actions/projectActions';
 import { useParams } from 'react-router-dom';
 
 const ProjectContainer = (props) => {
-  let { projectId } = useParams();
+  const { projectDispatch, project } = props;
+  const { projectId } = useParams();
+
+  useEffect(() => {
+    projectDispatch(getProject(projectId));
+  }, []);
+
+  if (project.isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return <div>Project contaienr {projectId}</div>;
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    project: (projectID) => dispatch(getProject(projectID)),
+    project: state.project,
   };
 };
-export default connect(null, mapDispatchToProps)(ProjectContainer);
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    projectDispatch: (projectID) => dispatch(getProject(projectID)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectContainer);
