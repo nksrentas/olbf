@@ -6,7 +6,7 @@ import { withRouter } from 'react-router';
 import Socials from '../Socials';
 
 import { setActiveLink } from '../../actions/navigationActions';
-import { getProjects } from '../../actions/projectActions';
+import { getProjects } from '../../actions/projectsActions';
 import { pathToTitle } from '../../utils/reformPath';
 
 function Navigation(props) {

@@ -9,6 +9,7 @@ const TopBarContainer = (props) => {
   const handleViewState = (view) => {
     props.changeView(view);
   };
+
   return (
     <TopBar
       data={navigation}

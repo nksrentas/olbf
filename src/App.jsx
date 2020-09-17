@@ -22,10 +22,18 @@ function App() {
         </div>
         <Switch>
           {navigationRoutes.map((route, index) => (
-            <Route exact key={index} path={route.path}>
-              <MainContentContainer />
-            </Route>
+            <Route
+              key={index}
+              path={route.path}
+              component={MainContentContainer}
+            />
           ))}
+
+          {/* <Route
+            exact
+            key={index + '.' + route.path}
+            path={`${route.path}/:projectId`}
+          ></Route> */}
 
           {/* 404 route */}
           <Route exact key='404' path={wrongRoute.path}>

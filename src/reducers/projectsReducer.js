@@ -2,7 +2,7 @@ import {
   GET_PROJECTS_ERROR,
   GET_PROJECTS_REQUEST,
   GET_PROJECTS_SUCCESS,
-} from '../actions/projectActions';
+} from '../actions/projectsActions.js';
 import { pathToStateKey } from '../utils/reformPath';
 
 // TODO: refactor key names
