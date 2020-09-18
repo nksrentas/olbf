@@ -21,19 +21,20 @@ function App() {
           <Navigation />
         </div>
         <Switch>
+          {/* TODO: fix `/` path */}
           {navigationRoutes.map((route, index) => (
             <Route
+              exact={route.exact ? true : false}
               key={index}
               path={route.path}
               component={MainContentContainer}
             />
           ))}
 
-          {/* <Route
-            exact
-            key={index + '.' + route.path}
-            path={`${route.path}/:projectId`}
-          ></Route> */}
+          {/* / path */}
+          <Route exact path='/'>
+            <Redirect to='/latest-projects' />}
+          </Route>
 
           {/* 404 route */}
           <Route exact key='404' path={wrongRoute.path}>

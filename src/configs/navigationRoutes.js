@@ -2,7 +2,6 @@ const navigationRoutes = [
   {
     path: '/latest-projects',
     title: 'Latest Projects',
-    exact: 'true',
   },
   {
     path: '/javascript',
