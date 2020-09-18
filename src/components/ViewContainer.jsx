@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { connect } from 'react-redux';
 import ListView from './listView/ListView';
 import GridView from './gridView/GridView';
+import { getProjects } from '../actions/projectsActions';
 
 const ViewContainer = (props) => {
   const { viewType, projects, path, projectSection } = props;
+
+  // console.log('projectSEction', projectSection, path, props.match.path);
+  useLayoutEffect(() => {
+    console.log('ARXIZW NA KANW FETCH APO REDUX', props.match.path);
+
+    props.projectsDispatch(props.match.path);
+  }, []);
+
+  console.log(projects.isLoading);
   // TODO: fix error properView
   let properView = <p>ERRORR</p>;
 
@@ -13,11 +23,15 @@ const ViewContainer = (props) => {
   }
 
   if (projects.success && viewType === 'list') {
-    properView = <ListView projects={projects[projectSection]} path={path} />;
+    properView = (
+      <ListView projects={projects[projectSection]} path={props.match.path} />
+    );
   }
 
   if (projects.success && viewType === 'grid') {
-    properView = <GridView projects={projects[projectSection]} path={path} />;
+    properView = (
+      <GridView projects={projects[projectSection]} path={props.match.path} />
+    );
   }
 
   return <div className='jumbotron rounded-0 rounded-bottom'>{properView}</div>;
@@ -32,4 +46,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ViewContainer);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    projectsDispatch: (path) => dispatch(getProjects(path)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewContainer);

@@ -8,8 +8,6 @@ const ProjectViewContainer = (props) => {
   const { projectDispatch, project } = props;
   const { projectId } = useParams();
 
-  console.log(project);
-
   useEffect(() => {
     projectDispatch(getProject(projectId));
   }, []);
@@ -18,11 +16,10 @@ const ProjectViewContainer = (props) => {
     return <p>Loading...</p>;
   }
 
-  return <div>Project contaienr {projectId}</div>;
+  return <ProjectView data={project.data} />;
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     project: state.project,
   };

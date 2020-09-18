@@ -6,7 +6,7 @@ import { withRouter } from 'react-router';
 import Socials from '../Socials';
 
 import { setActiveLink } from '../../actions/navigationActions';
-import { getProjects } from '../../actions/projectsActions';
+import { getProjects, setLoadToTrue } from '../../actions/projectsActions';
 import { pathToTitle } from '../../utils/reformPath';
 
 function Navigation(props) {
@@ -22,7 +22,7 @@ function Navigation(props) {
         path: refreshedPathName,
         title,
       });
-      projectsFire(refreshedPathName);
+      // projectsFire(refreshedPathName);
     }
   }, []);
 
@@ -31,7 +31,8 @@ function Navigation(props) {
       path: event.target.getAttribute('href'),
       title: event.target.innerHTML,
     });
-    projectsFire(event.target.getAttribute('href'));
+    // projectsFire(event.target.getAttribute('href'));
+    props.setLoadToTrue();
   };
 
   return (
@@ -63,6 +64,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     navigationFire: (url) => dispatch(setActiveLink(url)),
     projectsFire: (path) => dispatch(getProjects(path)),
+    setLoadToTrue: () => dispatch(setLoadToTrue()),
   };
 };
 

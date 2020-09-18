@@ -5,9 +5,16 @@ export const GET_PROJECTS_SUCCESS = 'GET_PROJECTS_SUCCESS';
 export const getProjects = (type) => {
   return (dispatch, getState) => {
     // fake database call at `type` prop
+    console.log('Start fetching data!');
     dispatch({
       type: GET_PROJECTS_REQUEST,
-      payload: { fetchState: { isLoading: true, success: null, error: null } },
+      payload: {
+        fetchState: {
+          isLoading: true,
+          success: null,
+          error: null,
+        },
+      },
     });
 
     setTimeout(() => {
@@ -35,5 +42,18 @@ export const getProjects = (type) => {
     }, 2000);
 
     // TODO: add `error` dispatch
+  };
+};
+
+export const setLoadToTrue = () => {
+  return {
+    type: 'set_loading_to_true',
+    payload: {
+      fetchState: {
+        isLoading: true,
+        success: null,
+        error: null,
+      },
+    },
   };
 };

@@ -167,6 +167,12 @@ const projectsReducer = (state = initialState, action) => {
       };
     case GET_PROJECTS_ERROR:
       return {
+        ...state,
+        ...action.payload.fetchState,
+      };
+    case 'set_loading_to_true':
+      return {
+        ...state,
         ...action.payload.fetchState,
       };
     default:
