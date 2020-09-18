@@ -15,8 +15,8 @@ const projectReducer = (state = initialState, action) => {
       };
     case GET_PROJECT_SUCCESS:
       return {
+        data: action.payload.data,
         ...state,
-        ...action.payload.data,
         ...action.payload.fetchState,
       };
     case GET_PROJECT_ERROR:

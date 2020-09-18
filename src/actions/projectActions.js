@@ -22,16 +22,14 @@ export const getProject = (id) => {
           data: [
             {
               id: 1,
-              subPath: 'FETCHED-project-one',
-              title: ' FETCHED Project one',
+              title: 'HAHAHAHAHAHAHAHA',
               estimateTime: '10min',
               category: 'kappa keepo',
               text: 'blah blah blah',
             },
             {
-              id: 1,
-              subPath: 'FETCHED-project-one',
-              title: ' FETCHED Project one',
+              id: 2,
+              title: 'v2 HAHAHAHHA',
               estimateTime: '10min',
               category: 'kappa keepo',
               text: 'blah blah blah',

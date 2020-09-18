@@ -7,6 +7,8 @@ const ProjectContainer = (props) => {
   const { projectDispatch, project } = props;
   const { projectId } = useParams();
 
+  console.log(project);
+
   useEffect(() => {
     projectDispatch(getProject(projectId));
   }, []);
@@ -19,6 +21,7 @@ const ProjectContainer = (props) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     project: state.project,
   };
