@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getProject } from '../../actions/projectActions';
 import { useParams } from 'react-router-dom';
+import ProjectView from './ProjectView';
 
-const ProjectContainer = (props) => {
+const ProjectViewContainer = (props) => {
   const { projectDispatch, project } = props;
   const { projectId } = useParams();
 
@@ -33,4 +34,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProjectViewContainer);
