@@ -31,7 +31,7 @@ function Navigation(props) {
   const handleClick = (event) => {
     navigationDispatch({
       path,
-      titleRedux,
+      title: titleRedux,
     });
     setLoadToTrue();
   };
@@ -55,6 +55,13 @@ function Navigation(props) {
             {route.title}
           </NavLink>
         ))}
+      </div>
+
+      <div className='my-3'>
+        <img
+          src='https://via.placeholder.com/120x240?text=Vertical+Banner'
+          alt='ad banner'
+        />
       </div>
       <Socials orientation='row' />
     </>
