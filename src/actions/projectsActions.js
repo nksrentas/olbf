@@ -6,9 +6,12 @@ export const GET_PROJECTS_ERROR = 'GET_PROJECTS_ERROR';
 export const GET_PROJECTS_SUCCESS = 'GET_PROJECTS_SUCCESS';
 export const SET_PROJECT_LOAD_TRUE = 'SET_PROJECT_LOAD_TRUE';
 
-export const getProjects = (path) => {
+export const getProjects = (path, error) => {
   return (dispatch, getState) => {
     // fake database call at `type` prop
+    if (getState().navigation.error) {
+      return;
+    }
     dispatch({
       type: GET_PROJECTS_REQUEST,
       payload: {

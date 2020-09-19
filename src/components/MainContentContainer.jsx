@@ -10,8 +10,10 @@ const MainContentContainer = (props) => {
   const { error, navigationFire } = props;
   const { path } = useRouteMatch();
 
-  if (error) {
+  if (error !== undefined && error) {
     navigationFire({ error: true });
+  } else {
+    navigationFire({ error: false });
   }
 
   return (

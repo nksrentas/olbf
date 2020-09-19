@@ -13,6 +13,8 @@ const TopBarContainer = (props) => {
 
   if (fetchState) {
     title = fetchState.isLoading ? 'Loading...' : title;
+  } else if (navigation.error) {
+    title = navigation.title;
   } else {
     title = '';
   }

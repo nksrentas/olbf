@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import ListView from './listView/ListView';
 import GridView from './gridView/GridView';
@@ -9,16 +9,25 @@ const ViewContainer = (props) => {
     viewType,
     projects,
     projectsDispatch,
+    navigation,
     match: { path },
   } = props;
   const { objectKey: projectSection } = projects;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     projectsDispatch(path);
   }, [path, projectsDispatch]);
+  // useLayoutEffect(() => {
+  //   if (navigation.error) return;
+  //   projectsDispatch(path);
+  // }, [path, projectsDispatch]);
 
   // TODO: fix error properView
   let properView = <p>ERRORR</p>;
+
+  if (navigation.error) {
+    properView = <p>Kappa keepo</p>;
+  }
 
   if (projects.isLoading) {
     properView = <p>Loading...</p>;
@@ -43,6 +52,7 @@ const mapStateToProps = (state) => {
   return {
     projects: state.projects,
     viewType: state.topBar.viewType,
+    navigation: state.navigation,
   };
 };
 
