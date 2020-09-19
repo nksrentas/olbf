@@ -10,7 +10,7 @@ const ProjectViewContainer = (props) => {
 
   useEffect(() => {
     projectDispatch(getProject(projectId));
-  }, []);
+  }, [projectId, projectDispatch]);
 
   if (project.isLoading) {
     return <p>Loading...</p>;
