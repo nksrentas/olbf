@@ -24,11 +24,11 @@ const ViewContainer = (props) => {
     properView = <p>Loading...</p>;
   }
 
-  if (projects.success && viewType === 'list') {
+  if (projects[projectSection] && projects.success && viewType === 'list') {
     properView = <ListView projects={projects[projectSection]} path={path} />;
   }
 
-  if (projects.success && viewType === 'grid') {
+  if (projects[projectSection] && projects.success && viewType === 'grid') {
     properView = <GridView projects={projects[projectSection]} path={path} />;
   }
 
