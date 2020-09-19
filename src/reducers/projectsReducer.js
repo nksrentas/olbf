@@ -4,147 +4,8 @@ import {
   GET_PROJECTS_SUCCESS,
   SET_PROJECT_LOAD_TRUE,
 } from '../actions/projectsActions.js';
-import { pathToStateKey } from '../utils/reformPath';
 
-// TODO: refactor key names
-const initialState = {
-  // javascript: [
-  //   {
-  //     id: 1,
-  //     subPath: 'project-one',
-  //     title: 'Javascript Project one',
-  //     estimateTime: '10min',
-  //     category: 'frontend master',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 2,
-  //     subPath: 'project-two',
-  //     title: 'Javascript Project two',
-  //     estimateTime: '7min',
-  //     category: 'hardware',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 3,
-  //     subPath: 'project-three',
-  //     title: 'Javascript Project three',
-  //     estimateTime: '20min',
-  //     category: 'hardware',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 4,
-  //     subPath: 'project-four',
-  //     title: 'Javascript Project four',
-  //     estimateTime: '12min',
-  //     category: 'frontend master',
-  //     text: 'blah blah blah',
-  //   },
-  // ],
-  // frontendmentor: [
-  //   {
-  //     id: 1,
-  //     subPath: 'project-one',
-  //     title: 'Frontend Mentor Project one',
-  //     estimateTime: '10min',
-  //     category: 'frontend master',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 2,
-  //     subPath: 'project-two',
-  //     title: 'Frontend Mentor Project two',
-  //     estimateTime: '7min',
-  //     category: 'hardware',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 3,
-  //     subPath: 'project-three',
-  //     title: 'Frontend Mentor Project three',
-  //     estimateTime: '20min',
-  //     category: 'hardware',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 4,
-  //     subPath: 'project-four',
-  //     title: 'Frontend Mentor Project four',
-  //     estimateTime: '12min',
-  //     category: 'frontend master',
-  //     text: 'blah blah blah',
-  //   },
-  // ],
-  // hardware: [
-  //   {
-  //     id: 1,
-  //     subPath: 'project-one',
-  //     title: 'Hardware Project one',
-  //     estimateTime: '10min',
-  //     category: 'frontend master',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 2,
-  //     subPath: 'project-two',
-  //     title: 'Hardware Project two',
-  //     estimateTime: '7min',
-  //     category: 'hardware',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 3,
-  //     subPath: 'project-three',
-  //     title: 'Hardware Project three',
-  //     estimateTime: '20min',
-  //     category: 'hardware',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 4,
-  //     subPath: 'project-four',
-  //     title: 'Hardware Project four',
-  //     estimateTime: '12min',
-  //     category: 'frontend master',
-  //     text: 'blah blah blah',
-  //   },
-  // ],
-  // latestprojects: [
-  //   {
-  //     id: 1,
-  //     subPath: 'project-one',
-  //     title: 'Latest Projects Project one',
-  //     estimateTime: '10min',
-  //     category: 'frontend master',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 2,
-  //     subPath: 'project-two',
-  //     title: 'Latest Projects Project two',
-  //     estimateTime: '7min',
-  //     category: 'hardware',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 3,
-  //     subPath: 'project-three',
-  //     title: 'Latest Projects Project three',
-  //     estimateTime: '20min',
-  //     category: 'hardware',
-  //     text: 'blah blah blah',
-  //   },
-  //   {
-  //     id: 4,
-  //     subPath: 'project-four',
-  //     title: 'Latest Projects Project four',
-  //     estimateTime: '12min',
-  //     category: 'frontend master',
-  //     text: 'blah blah blah',
-  //   },
-  // ],
-};
+const initialState = {};
 
 const projectsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -154,16 +15,24 @@ const projectsReducer = (state = initialState, action) => {
         ...action.payload.fetchState,
       };
     case GET_PROJECTS_SUCCESS:
-      let objectKey = pathToStateKey(action.payload.type);
+      const objectKey = action.payload.objectKey;
 
-      // store fetched data
-      let data = state[objectKey]
-        ? state[objectKey].concat(action.payload.data)
+      let finalDataArray = state[objectKey]
+        ? state[objectKey]['data'].concat(action.payload.data)
         : action.payload.data;
-      state[objectKey] = data;
 
+      state[objectKey] = {
+        data: finalDataArray,
+        path: action.payload.path,
+        objectKey: action.payload.objectKey,
+        title: action.payload.title,
+      };
       return {
         ...state,
+        // kai exw gia na xerw pio `projects` section einai open
+        objectKey: action.payload.objectKey,
+        // gia ton idio logo me panw
+        title: action.payload.title,
         ...action.payload.fetchState,
       };
     case GET_PROJECTS_ERROR:

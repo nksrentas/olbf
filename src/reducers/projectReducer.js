@@ -21,6 +21,7 @@ const projectReducer = (state = initialState, action) => {
       };
     case GET_PROJECT_ERROR:
       return {
+        ...state,
         ...action.payload.fetchState,
       };
     default:

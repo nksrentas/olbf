@@ -2,7 +2,6 @@ import {
   SET_ACTIVE_LINK,
   SET_ACTIVE_LINK_404,
 } from '../actions/navigationActions';
-import { pathToStateKey } from '../utils/reformPath';
 
 const intialState = {
   path: '/',
@@ -14,12 +13,10 @@ const intialState = {
 const navigationReducer = (state = intialState, action) => {
   switch (action.type) {
     case SET_ACTIVE_LINK:
-      // let cleanTitle = pathToStateKey(action.payload.path);
       return {
         ...state,
         error: false,
         ...action.payload,
-        // cleanTitle,
       };
     case SET_ACTIVE_LINK_404:
       return {

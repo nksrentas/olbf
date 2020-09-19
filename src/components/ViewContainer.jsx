@@ -8,10 +8,10 @@ const ViewContainer = (props) => {
   const {
     viewType,
     projects,
-    projectSection,
     projectsDispatch,
     match: { path },
   } = props;
+  const { objectKey: projectSection } = projects;
 
   useLayoutEffect(() => {
     projectsDispatch(path);
@@ -25,11 +25,15 @@ const ViewContainer = (props) => {
   }
 
   if (projects[projectSection] && projects.success && viewType === 'list') {
-    properView = <ListView projects={projects[projectSection]} path={path} />;
+    properView = (
+      <ListView projects={projects[projectSection].data} path={path} />
+    );
   }
 
   if (projects[projectSection] && projects.success && viewType === 'grid') {
-    properView = <GridView projects={projects[projectSection]} path={path} />;
+    properView = (
+      <GridView projects={projects[projectSection].data} path={path} />
+    );
   }
 
   return <div className='jumbotron rounded-0 rounded-bottom'>{properView}</div>;
@@ -38,7 +42,6 @@ const ViewContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     projects: state.projects,
-    projectSection: state.navigation.cleanTitle,
     viewType: state.topBar.viewType,
   };
 };

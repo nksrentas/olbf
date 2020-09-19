@@ -14,24 +14,24 @@ function Navigation(props) {
     navigationDispatch,
     setLoadToTrue,
     location: { pathname: path },
-    titleRedux,
+    activeTitle,
   } = props;
 
   // gia to refresh
-  useEffect(() => {
-    let title = pathToTitle(path, navigationRoutes);
-    if (title) {
-      navigationDispatch({
-        path,
-        title,
-      });
-    }
-  }, [navigationDispatch, path]);
+  // useEffect(() => {
+  //   let title = pathToTitle(path, navigationRoutes);
+  //   if (title) {
+  //     navigationDispatch({
+  //       path,
+  //       title,
+  //     });
+  //   }
+  // }, [navigationDispatch, path]);
 
   const handleClick = (event) => {
     navigationDispatch({
       path,
-      title: titleRedux,
+      // title: activeTitle,
     });
     setLoadToTrue();
   };
@@ -70,7 +70,7 @@ function Navigation(props) {
 
 const mapStateToProps = (state) => {
   return {
-    titleRedux: state.navigation.title,
+    // activeTitle: state.projects.title,
   };
 };
 

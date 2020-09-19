@@ -19,3 +19,11 @@ export const pathToTitle = (path, array) => {
   // check if route is 404
   return routeObj.length ? routeObj.shift().title : false;
 };
+
+export const pathToObjectKey = (path, array) => {
+  const property = array.find((route) => {
+    return route.path === path;
+  });
+
+  return property.objectKey;
+};
