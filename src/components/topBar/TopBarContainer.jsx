@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TopBar from './TopBar';
-
 import { setView } from '../../actions/topBarActions';
 
 const TopBarContainer = (props) => {

@@ -14,12 +14,12 @@ const intialState = {
 const navigationReducer = (state = intialState, action) => {
   switch (action.type) {
     case SET_ACTIVE_LINK:
-      let cleanTitle = pathToStateKey(action.payload.path);
+      // let cleanTitle = pathToStateKey(action.payload.path);
       return {
         ...state,
         error: false,
         ...action.payload,
-        cleanTitle,
+        // cleanTitle,
       };
     case SET_ACTIVE_LINK_404:
       return {
