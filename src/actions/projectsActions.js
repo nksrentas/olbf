@@ -1,11 +1,11 @@
 export const GET_PROJECTS_REQUEST = 'GET_PROJECTS_REQUEST';
 export const GET_PROJECTS_ERROR = 'GET_PROJECTS_ERROR';
 export const GET_PROJECTS_SUCCESS = 'GET_PROJECTS_SUCCESS';
+export const SET_PROJECT_LOAD_TRUE = 'SET_PROJECT_LOAD_TRUE';
 
 export const getProjects = (type) => {
   return (dispatch, getState) => {
     // fake database call at `type` prop
-    console.log('Start fetching data!');
     dispatch({
       type: GET_PROJECTS_REQUEST,
       payload: {
@@ -47,7 +47,7 @@ export const getProjects = (type) => {
 
 export const setLoadToTrue = () => {
   return {
-    type: 'set_loading_to_true',
+    type: SET_PROJECT_LOAD_TRUE,
     payload: {
       fetchState: {
         isLoading: true,

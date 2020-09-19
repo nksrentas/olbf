@@ -5,16 +5,18 @@ import GridView from './gridView/GridView';
 import { getProjects } from '../actions/projectsActions';
 
 const ViewContainer = (props) => {
-  const { viewType, projects, path, projectSection } = props;
+  const {
+    viewType,
+    projects,
+    projectSection,
+    projectsDispatch,
+    match: { path },
+  } = props;
 
-  // console.log('projectSEction', projectSection, path, props.match.path);
   useLayoutEffect(() => {
-    console.log('ARXIZW NA KANW FETCH APO REDUX', props.match.path);
+    projectsDispatch(path);
+  }, [path, projectsDispatch]);
 
-    props.projectsDispatch(props.match.path);
-  }, []);
-
-  console.log(projects.isLoading);
   // TODO: fix error properView
   let properView = <p>ERRORR</p>;
 
@@ -23,15 +25,11 @@ const ViewContainer = (props) => {
   }
 
   if (projects.success && viewType === 'list') {
-    properView = (
-      <ListView projects={projects[projectSection]} path={props.match.path} />
-    );
+    properView = <ListView projects={projects[projectSection]} path={path} />;
   }
 
   if (projects.success && viewType === 'grid') {
-    properView = (
-      <GridView projects={projects[projectSection]} path={props.match.path} />
-    );
+    properView = <GridView projects={projects[projectSection]} path={path} />;
   }
 
   return <div className='jumbotron rounded-0 rounded-bottom'>{properView}</div>;
@@ -40,7 +38,6 @@ const ViewContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     projects: state.projects,
-    path: state.navigation.path,
     projectSection: state.navigation.cleanTitle,
     viewType: state.topBar.viewType,
   };

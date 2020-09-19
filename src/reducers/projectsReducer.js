@@ -2,6 +2,7 @@ import {
   GET_PROJECTS_ERROR,
   GET_PROJECTS_REQUEST,
   GET_PROJECTS_SUCCESS,
+  SET_PROJECT_LOAD_TRUE,
 } from '../actions/projectsActions.js';
 import { pathToStateKey } from '../utils/reformPath';
 
@@ -170,7 +171,7 @@ const projectsReducer = (state = initialState, action) => {
         ...state,
         ...action.payload.fetchState,
       };
-    case 'set_loading_to_true':
+    case SET_PROJECT_LOAD_TRUE:
       return {
         ...state,
         ...action.payload.fetchState,
