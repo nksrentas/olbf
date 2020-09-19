@@ -1,38 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import navigationRoutes from '../../configs/navigationRoutes';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Socials from '../Socials';
 
-import { setActiveLink } from '../../actions/navigationActions';
 import { setLoadToTrue } from '../../actions/projectsActions';
-import { pathToTitle } from '../../utils/reformPath';
 
 function Navigation(props) {
-  const {
-    navigationDispatch,
-    setLoadToTrue,
-    location: { pathname: path },
-    activeTitle,
-  } = props;
-
-  // gia to refresh
-  // useEffect(() => {
-  //   let title = pathToTitle(path, navigationRoutes);
-  //   if (title) {
-  //     navigationDispatch({
-  //       path,
-  //       title,
-  //     });
-  //   }
-  // }, [navigationDispatch, path]);
+  const { setLoadToTrue } = props;
 
   const handleClick = (event) => {
-    navigationDispatch({
-      path,
-      // title: activeTitle,
-    });
     setLoadToTrue();
   };
 
@@ -68,19 +46,10 @@ function Navigation(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    // activeTitle: state.projects.title,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
-    navigationDispatch: (path) => dispatch(setActiveLink(path)),
     setLoadToTrue: () => dispatch(setLoadToTrue()),
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(Navigation)
-);
+export default withRouter(connect(null, mapDispatchToProps)(Navigation));

@@ -13,6 +13,7 @@ const projectsReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload.fetchState,
+        fetchState: action.payload.fetchState,
       };
     case GET_PROJECTS_SUCCESS:
       const objectKey = action.payload.objectKey;
@@ -34,16 +35,19 @@ const projectsReducer = (state = initialState, action) => {
         // gia ton idio logo me panw
         title: action.payload.title,
         ...action.payload.fetchState,
+        fetchState: action.payload.fetchState,
       };
     case GET_PROJECTS_ERROR:
       return {
         ...state,
         ...action.payload.fetchState,
+        fetchState: action.payload.fetchState,
       };
     case SET_PROJECT_LOAD_TRUE:
       return {
         ...state,
         ...action.payload.fetchState,
+        fetchState: action.payload.fetchState,
       };
     default:
       return state;

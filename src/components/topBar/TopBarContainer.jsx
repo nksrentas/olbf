@@ -4,16 +4,26 @@ import TopBar from './TopBar';
 import { setView } from '../../actions/topBarActions';
 
 const TopBarContainer = (props) => {
-  const { navigation, topBar, changeView } = props;
+  const { navigation, topBar, changeView, projects } = props;
+  let { fetchState, title } = projects;
+
   const handleViewState = (view) => {
     changeView(view);
   };
+
+  if (fetchState) {
+    title = fetchState.isLoading ? 'Loading...' : title;
+  } else {
+    title = '';
+  }
 
   return (
     <TopBar
       data={navigation}
       handleView={handleViewState}
       activeViewType={topBar}
+      fetchState={fetchState}
+      title={title}
     />
   );
 };
@@ -21,6 +31,7 @@ const TopBarContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     navigation: state.navigation,
+    projects: state.projects,
     topBar: state.topBar.viewType,
   };
 };

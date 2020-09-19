@@ -4,7 +4,9 @@ import TopBarIcons from './TopBarIcons';
 const TopBar = (props) => {
   const {
     // eslint-disable-next-line no-unused-vars
-    data: { path, title, cleanTitle, error },
+    fetchState,
+    title,
+    data: { path, error },
   } = props;
 
   return (
