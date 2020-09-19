@@ -5,9 +5,9 @@ import TopBar from './TopBar';
 import { setView } from '../../actions/topBarActions';
 
 const TopBarContainer = (props) => {
-  const { navigation, topBar } = props;
+  const { navigation, topBar, changeView } = props;
   const handleViewState = (view) => {
-    props.changeView(view);
+    changeView(view);
   };
 
   return (

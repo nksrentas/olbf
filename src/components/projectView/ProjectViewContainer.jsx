@@ -12,11 +12,17 @@ const ProjectViewContainer = (props) => {
     projectDispatch(getProject(projectId));
   }, [projectId, projectDispatch]);
 
+  let properView = <p>Error</p>;
+
   if (project.isLoading) {
-    return <p>Loading...</p>;
+    properView = <p>Loading...</p>;
   }
 
-  return <ProjectView data={project.data} />;
+  if (project.success) {
+    properView = <ProjectView data={project.data} />;
+  }
+
+  return <div className='jumbotron rounded-0 rounded-bottom'>{properView}</div>;
 };
 
 const mapStateToProps = (state) => {
