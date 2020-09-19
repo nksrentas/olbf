@@ -3,6 +3,7 @@ import Socials from '../Socials';
 
 const ProjectView = (props) => {
   const { data } = props;
+  console.log(data);
   return (
     <>
       <div className='jumbotron rounded-0 rounded-bottom'>
@@ -45,13 +46,17 @@ const ProjectView = (props) => {
           </div>
         </div>
 
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-          sapiente explicabo, optio, alias ipsa provident consequuntur impedit
-          minima similique quam, nam vel laudantium nisi adipisci non nemo
-          aspernatur earum sequi eos praesentium nulla ut ea. Similique officiis
-          deleniti adipisci explicabo?
-        </p>
+        <div className='row'>
+          <div className='col-11'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Recusandae sapiente explicabo, optio, alias ipsa provident
+              consequuntur impedit minima similique quam, nam vel laudantium
+              nisi adipisci non nemo aspernatur earum sequi eos praesentium
+              nulla ut ea. Similique officiis deleniti adipisci explicabo?
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );
