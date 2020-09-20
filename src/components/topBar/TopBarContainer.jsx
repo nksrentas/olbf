@@ -7,7 +7,6 @@ const TopBarContainer = (props) => {
   const { navigation, topBar, changeView, fetchState, renderExtra } = props;
   let { title } = props;
 
-  console.log(renderExtra());
   const handleViewState = (view) => {
     changeView(view);
   };
