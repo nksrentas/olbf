@@ -12,7 +12,7 @@ const ProjectView = (props) => {
             <iframe
               className='embed-responsive-16by9'
               title='kappa?'
-              src='https://player.twitch.tv/?channel=psychedelicaura&parent=localhost'
+              src='https://player.twitch.tv/?channel=auraofpsych&parent=localhost'
               frameBorder='0'
               allowFullScreen={true}
               scrolling='no'

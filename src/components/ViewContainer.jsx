@@ -17,10 +17,6 @@ const ViewContainer = (props) => {
   useEffect(() => {
     projectsDispatch(path);
   }, [path, projectsDispatch]);
-  // useLayoutEffect(() => {
-  //   if (navigation.error) return;
-  //   projectsDispatch(path);
-  // }, [path, projectsDispatch]);
 
   // TODO: fix error properView
   let properView = <p>ERRORR</p>;

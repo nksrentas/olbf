@@ -19,6 +19,7 @@ export const getProject = (id) => {
             success: true,
             error: false,
           },
+          title: id,
           data: [
             {
               id: 1,

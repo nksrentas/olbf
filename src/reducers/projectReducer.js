@@ -12,17 +12,21 @@ const projectReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload.fetchState,
+        fetchState: action.payload.fetchState,
       };
     case GET_PROJECT_SUCCESS:
       return {
         data: action.payload.data,
+        title: action.payload.title,
         ...state,
         ...action.payload.fetchState,
+        fetchState: action.payload.fetchState,
       };
     case GET_PROJECT_ERROR:
       return {
         ...state,
         ...action.payload.fetchState,
+        fetchState: action.payload.fetchState,
       };
     default:
       return state;

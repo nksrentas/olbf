@@ -9,7 +9,7 @@ const ProjectViewContainer = (props) => {
   const { projectId } = useParams();
 
   useEffect(() => {
-    projectDispatch(getProject(projectId));
+    projectDispatch(projectId);
   }, [projectId, projectDispatch]);
 
   let properView = <p>Error</p>;
