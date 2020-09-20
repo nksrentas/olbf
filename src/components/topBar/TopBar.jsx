@@ -1,5 +1,4 @@
 import React from 'react';
-import TopBarIcons from './TopBarIcons';
 
 const TopBar = (props) => {
   const {
