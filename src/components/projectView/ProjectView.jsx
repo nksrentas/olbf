@@ -1,7 +1,7 @@
 import React from 'react';
 
 const downloadSectionStyle = {
-  letterSpacing: '0.5em',
+  letterSpacing: '0.2em',
 };
 const ProjectView = (props) => {
   const { data } = props;
@@ -33,27 +33,28 @@ const ProjectView = (props) => {
         </div>
       </div>
 
-      <div className='row'>
-        <div className='col-12 text-justify'>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-            sapiente explicabo, optio, alias ipsa provident consequuntur impedit
-            minima similique quam, nam vel laudantium nisi adipisci non nemo
-            aspernatur earum sequi eos praesentium nulla ut ea. Similique
-            officiis deleniti adipisci explicabo?
-          </p>
+      <div id='targetedText'>
+        <div className='row'>
+          <div className='col-12 text-justify'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Recusandae sapiente explicabo, optio, alias ipsa provident
+              consequuntur impedit minima similique quam, nam vel laudantium
+              nisi adipisci non nemo aspernatur earum sequi eos praesentium
+              nulla ut ea. Similique officiis deleniti adipisci explicabo?
+            </p>
+          </div>
         </div>
-      </div>
-
-      <div className='row'>
-        <div className='col-12 text-justify'>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-            sapiente explicabo, optio, alias ipsa provident consequuntur impedit
-            minima similique quam, nam vel laudantium nisi adipisci non nemo
-            aspernatur earum sequi eos praesentium nulla ut ea. Similique
-            officiis deleniti adipisci explicabo?
-          </p>
+        <div className='row'>
+          <div className='col-12 text-justify'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Recusandae sapiente explicabo, optio, alias ipsa provident
+              consequuntur impedit minima similique quam, nam vel laudantium
+              nisi adipisci non nemo aspernatur earum sequi eos praesentium
+              nulla ut ea. Similique officiis deleniti adipisci explicabo?
+            </p>
+          </div>
         </div>
       </div>
     </>
