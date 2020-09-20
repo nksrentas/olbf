@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getProject } from '../../actions/projectActions';
 import { useParams } from 'react-router-dom';
 import ProjectView from './ProjectView';
+import TopBarContainer from '../topBar/TopBarContainer';
 
 const ProjectViewContainer = (props) => {
   const { projectDispatch, project } = props;
@@ -22,7 +23,17 @@ const ProjectViewContainer = (props) => {
     properView = <ProjectView data={project.data} />;
   }
 
-  return <div className='jumbotron rounded-0 rounded-bottom'>{properView}</div>;
+  return (
+    <div>
+      <div className='row sticky-top'>
+        <TopBarContainer
+          title={project.title}
+          fetchState={project.fetchState}
+        />
+      </div>
+      <div className='jumbotron rounded-0 rounded-bottom'>{properView}</div>
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {

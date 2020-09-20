@@ -3,7 +3,6 @@ import Socials from '../Socials';
 
 const ProjectView = (props) => {
   const { data } = props;
-  console.log(data);
   return (
     <>
       <div className='row'>

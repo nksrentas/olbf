@@ -4,8 +4,8 @@ import TopBar from './TopBar';
 import { setView } from '../../actions/topBarActions';
 
 const TopBarContainer = (props) => {
-  const { navigation, topBar, changeView, projects } = props;
-  let { fetchState, title } = projects;
+  const { navigation, topBar, changeView, projects, fetchState } = props;
+  let { title } = props;
 
   const handleViewState = (view) => {
     changeView(view);

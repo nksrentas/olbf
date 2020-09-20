@@ -18,9 +18,9 @@ const MainContentContainer = (props) => {
 
   return (
     <div className='col-md-10'>
-      <div className='row sticky-top'>
+      {/* <div className='row sticky-top'>
         <TopBarContainer />
-      </div>
+      </div> */}
 
       <Switch>
         <Route exact path={path} component={ViewContainer} />
