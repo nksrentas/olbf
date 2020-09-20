@@ -1,7 +1,7 @@
 import React from 'react';
 
 const downloadSectionStyle = {
-  letterSpacing: '1.2em',
+  letterSpacing: '0.5em',
 };
 const ProjectView = (props) => {
   const { data } = props;
@@ -26,8 +26,9 @@ const ProjectView = (props) => {
 
       <div className='row'>
         <div className='col-8'>
-          <p className='mt-4' style={{ ...downloadSectionStyle }}>
-            Download source code from Github
+          <p className='mt-4'>
+            Download source code from{' '}
+            <span style={{ ...downloadSectionStyle }}>Github</span>
           </p>
         </div>
       </div>
