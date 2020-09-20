@@ -4,6 +4,7 @@ import { getProject } from '../../actions/projectActions';
 import { useParams } from 'react-router-dom';
 import ProjectView from './ProjectView';
 import TopBarContainer from '../topBar/TopBarContainer';
+import FontSizeChanger from '../topBar/FontSizeChanger';
 
 const ProjectViewContainer = (props) => {
   const { projectDispatch, project } = props;
@@ -29,6 +30,7 @@ const ProjectViewContainer = (props) => {
         <TopBarContainer
           title={project.title}
           fetchState={project.fetchState}
+          renderExtra={() => <FontSizeChanger />}
         />
       </div>
       <div className='jumbotron rounded-0 rounded-bottom'>{properView}</div>

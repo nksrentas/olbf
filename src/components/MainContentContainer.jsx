@@ -18,10 +18,6 @@ const MainContentContainer = (props) => {
 
   return (
     <div className='col-md-10'>
-      {/* <div className='row sticky-top'>
-        <TopBarContainer />
-      </div> */}
-
       <Switch>
         <Route exact path={path} component={ViewContainer} />
         <Route path={`${path}/:projectId`} component={ProjectViewContainer} />

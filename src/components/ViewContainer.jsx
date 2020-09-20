@@ -4,6 +4,7 @@ import ListView from './listView/ListView';
 import GridView from './gridView/GridView';
 import { getProjects } from '../actions/projectsActions';
 import TopBarContainer from '../components/topBar/TopBarContainer';
+import TopBarIcons from '../components/topBar/TopBarIcons';
 
 const ViewContainer = (props) => {
   const {
@@ -48,12 +49,12 @@ const ViewContainer = (props) => {
         <TopBarContainer
           title={projects.title}
           fetchState={projects.fetchState}
+          renderExtra={(data) => <TopBarIcons data={data} />}
         />
       </div>
       <div className='jumbotron rounded-0 rounded-bottom'>{properView}</div>
     </div>
   );
-  //  return <div className='jumbotron rounded-0 rounded-bottom'>{properView}</div>;
 };
 
 const mapStateToProps = (state) => {

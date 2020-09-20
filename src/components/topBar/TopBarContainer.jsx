@@ -4,9 +4,10 @@ import TopBar from './TopBar';
 import { setView } from '../../actions/topBarActions';
 
 const TopBarContainer = (props) => {
-  const { navigation, topBar, changeView, projects, fetchState } = props;
+  const { navigation, topBar, changeView, fetchState, renderExtra } = props;
   let { title } = props;
 
+  console.log(renderExtra());
   const handleViewState = (view) => {
     changeView(view);
   };
@@ -26,6 +27,7 @@ const TopBarContainer = (props) => {
       activeViewType={topBar}
       fetchState={fetchState}
       title={title}
+      renderExtra={renderExtra}
     />
   );
 };

@@ -3,9 +3,8 @@ import TopBarIcons from './TopBarIcons';
 
 const TopBar = (props) => {
   const {
-    // eslint-disable-next-line no-unused-vars
-    fetchState,
     title,
+    renderExtra,
     data: { path, error },
   } = props;
 
@@ -15,7 +14,8 @@ const TopBar = (props) => {
         <a className='navbar-brand' href={path}>
           {title}
         </a>
-        {error ? '' : <TopBarIcons data={props} />}
+        {/* {error ? '' : <TopBarIcons data={props} />} */}
+        {renderExtra(props)}
       </nav>
     </div>
   );
