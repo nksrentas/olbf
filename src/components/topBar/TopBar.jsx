@@ -9,7 +9,7 @@ const TopBar = (props) => {
 
   return (
     <div className='col-md-12 ml-auto '>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light justify-content-between rounded-top  '>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light justify-content-between rounded-top'>
         <h4 className='text-dark my-auto'>{title}</h4>
         {/* {error ? '' : <TopBarIcons data={props} />} */}
         {renderExtra(props)}

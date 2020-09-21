@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-const style = 'd-inline-block pr-3 ';
-
 const FontSizeChanger = () => {
   const [fontSize, setFontSize] = useState({
     currentValue: 1,
@@ -20,23 +18,28 @@ const FontSizeChanger = () => {
 
   return (
     <div>
-      <span className={style}>
+      <button
+        type='button'
+        className='btn btn-default btn-circle px-0 align-baseline pr-2'
+      >
         <h5
-          className='text-dark my-auto'
-          // onClick={handleClick.bind(this, 'smaller')}
+          className='text-dark mb-0 '
           onClick={handleClick.bind(this, 'decrease')}
         >
           A-
         </h5>
-      </span>
-      <span className={style}>
+      </button>
+      <button
+        type='button'
+        className='btn btn-default btn-circle px-0 align-baseline'
+      >
         <h4
-          className='text-dark my-auto'
+          className='text-dark mb-0'
           onClick={handleClick.bind(this, 'increase')}
         >
           A+
         </h4>
-      </span>
+      </button>
     </div>
   );
 };
