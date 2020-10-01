@@ -1,12 +1,9 @@
 # OLBF technology stack
 
-<details >
-<summary>BOOOOM</summary>
-<img src="readmeImages/youtube-channel-art.png">
-</details>
+(🚧 under construction 🚧)
 
 | FrontEnd         | BackEnd |
 | :--------------- | :------ |
 | React            | MongoDB |
-| Redux            | Nginx   |
-| Custom Bootstrap |         |
+| Redux            | Node    |
+| Custom Bootstrap | Nginx   |
