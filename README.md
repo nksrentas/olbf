@@ -1,6 +1,4 @@
-# OLBF technology stack
-
-(🚧 under construction 🚧)
+# OLBF technology stack (🚧 under construction 🚧)
 
 | FrontEnd         | BackEnd |
 | :--------------- | :------ |
